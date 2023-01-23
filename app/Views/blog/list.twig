@@ -4,16 +4,10 @@
 
 <h1 class="mb-4">My blog posts</h1>
 
-{% set year = "0" %}
-{% for post in posts %}
-	{% if year != post.getDate|date('Y') %}
-		<span class="h4">
-			{{ post.getDate|date('Y') }}
-		</span>
-		<ul class="list-group my-2">
-	{% endif %}
-	
-  		<li class="list-group-item blog-box">
+<ul class="list-group my-2">
+	{% for post in posts %}
+
+		<li class="list-group-item blog-box">
 			<div class="row">
 				<div class="col-sm-9">
 					<a class="blog-link" href="/blog/{{ post.getSlug() }}">
@@ -28,10 +22,7 @@
 			</div>
 		</li>
 
-	{% if year != post.getDate|date('Y') %}
-			</ul>
-			{% set year = post.getDate|date('Y') %}
-	{% endif %}
-{% endfor %}
+	{% endfor %}
+</ul>
 
 {% endblock %}
