@@ -2,28 +2,18 @@
 
 namespace App\Controllers;
 
+use App\Helpers\BlogPost;
+use App\Helpers\BlogPosts;
+
 class Blog extends BaseController
 {
 	public function index()
 	{
-		$posts = scandir(
-			BLOG_PUBLISHED,
-			SCANDIR_SORT_DESCENDING
-		);
-
-		$postsToDisplay = [];
-		foreach ($posts as $key => $post) {
-			$post = strtolower($post);
-			if (str_ends_with($post, '.md')) {
-				$postsToDisplay[] = $post;
-			}
-		}
+		$postsToDisplay = (new BlogPosts)->getPublished();
 
 		$blogPosts = [];
 		foreach ($postsToDisplay as $post) {
-			$blogPosts[] = new \App\Helpers\BlogPost(
-				BLOG_PUBLISHED . "/{$post}"
-			);
+			$blogPosts[] = new BlogPost($post);
 		}
 
 		return $this->twig->display("blog/list", [
@@ -38,7 +28,7 @@ class Blog extends BaseController
 			throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
 		}
 
-		$blogPost = new \App\Helpers\BlogPost(
+		$blogPost = new BlogPost(
 			BLOG_PUBLISHED . "/{$slugToFile}"
 		);
 

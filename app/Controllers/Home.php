@@ -2,6 +2,9 @@
 
 namespace App\Controllers;
 
+use App\Helpers\BlogPost;
+use App\Helpers\BlogPosts;
+
 class Home extends BaseController
 {
 	private $mailto;
@@ -18,29 +21,22 @@ class Home extends BaseController
 
 	public function home()
 	{
-		$posts = scandir(
-			BLOG_PUBLISHED,
-			SCANDIR_SORT_DESCENDING
-		);
-
 		$postsToDisplay = [];
+		$allPosts = (new BlogPosts)->getPublished();
+		
 		$count = 0;
-		foreach ($posts as $key => $post) {
-			if ($count >= 3) break;
-
-			$post = strtolower($post);
-			if (str_ends_with($post, '.md')) {
-				$postsToDisplay[] = $post;
-			}
-
+		foreach ($allPosts as $post) {
 			$count++;
+			$postsToDisplay[] = $post;
+			
+			if ($count >= 3) {
+				break;
+			}
 		}
 
 		$blogPosts = [];
 		foreach ($postsToDisplay as $post) {
-			$blogPosts[] = new \App\Helpers\BlogPost(
-				BLOG_PUBLISHED . "/{$post}"
-			);
+			$blogPosts[] = new BlogPost($post);
 		}
 
 		return $this->twig->display("home/index", [
@@ -54,5 +50,10 @@ class Home extends BaseController
 		return $this->twig->display("home/about", [
 			'mailto' => $this->mailto
 		]);
+	}
+
+	public function tools()
+	{
+		return $this->twig->display("home/tools");
 	}
 }

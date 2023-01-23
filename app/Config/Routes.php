@@ -34,6 +34,7 @@ $routes->get('/home', 'Home::home');
 $routes->get('/about', 'Home::about');
 $routes->get('/blog', 'Blog::index');
 $routes->get('/blog/(:segment)', 'Blog::post/$1');
+$routes->get('/tools', 'Home::tools');
 
 /*
  * --------------------------------------------------------------------

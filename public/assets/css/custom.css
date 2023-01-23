@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
 
 html, body {
 	font-family: 'Rubik', sans-serif;
@@ -61,4 +61,14 @@ a.blog-link {
 
 .text-bold {
 	font-weight: bold;
+}
+
+.post-title {
+	font-weight: 700;
+	font-size: 2rem;
+	line-height: 1.5;
+}
+
+.post-article {
+	text-align: justify;
 }

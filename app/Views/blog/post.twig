@@ -2,32 +2,19 @@
 
 {% block content %}
 
-<div class="row">
-	<div class="col-lg-8">
-	
-		<h1>{{ post.getTitle() }}</h1>
+<h1 class="post-title">
+	{{ post.getTitle() }}
+</h1>
 
-	</div>
-	<div class="col-lg-4">
-	
-		<table>
-			<tr>
-				<td>Published on</td>
-				<td class="px-4"></td>
-				<td class="text-end text-bold">{{ post.getDate()|date("d.m.Y") }}</td>
-			</tr>
-			<tr>
-				<td>Article author</td>
-				<td class="px-4"></td>
-				<td class="text-end text-bold">{{ post.getAuthor() }}</td>
-			</tr>
-		</table>
-
-	</div>
+<div class="text-muted my-4">
+	<span>Published on</span>
+	<span class="text-bold">{{ post.getDate()|date("d.m.Y") }}</span>
+	<span>by</span>
+	<span class="text-bold">{{ post.getAuthor() }}</span>
 </div>
 
-<hr>
-
-{{ post.getHtml()|raw }}
+<article class="post-article">
+	{{ post.getHtml()|raw }}
+</article>
 
 {% endblock %}
