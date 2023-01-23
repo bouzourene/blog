@@ -1,0 +1,39 @@
+{% extends "layouts/general.twig" %}
+
+{% block content %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<h1 class="mb-3">
+				Hello, I'm William Bouzourène
+			</h1>
+
+			<p class="text-justify">
+				I’m a full-stack developper living and working near Lausanne, Switzerland.
+			</p>
+			<p class="text-justify">
+				I’ve been working in the healthcare system since 2021 and my main focus there is security. I currently work at
+				<a href="https://fhvi.ch" target="_blank">FHVI (Fédération des Hôpitaux Vaudois Informatique)</a>,
+				where I’m responsible for the IAM scope (about 15'000 user accounts and hundreds of applications).
+				My current position being just under the CISO allows me to perform a lot of other security oriented work as well.
+			</p>
+			<p class="text-justify">
+				You can find my side-projects (alive or dead) on my
+				<a href="https://github.com/bouzourene" target="_blank">GitHub profile</a>.
+			</p>
+			<p class="text-justify">
+				If you've got any questions, suggestions, or would like to discuss a project then
+				please email me. I'd be happy to hear from you. I'm fluent in both English and French.
+			</p>
+			<p class="text-justify f-bold">
+				<i>PS: This blog is only a passion project and does not represent my employer in any way.</i>
+			</p>
+		</div>
+		<div class="col-md-4 text-center pt-4">
+			<img src="/assets/images/william-about.jpg" class="img-fluid" alt="William">
+
+			{% include "partials/socials.twig" %}
+		</div>
+	</div>
+</div>
+{% endblock %}
