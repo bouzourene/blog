@@ -54,9 +54,5 @@ abstract class BaseController extends Controller
         $this->db = \Config\Database::connect();
         $this->twig = new \Kenjis\CI4Twig\Twig();
         $this->session = \Config\Services::session();
-        
-        // Database migraitons
-		$migrate = \Config\Services::migrations();
-		$migrate->latest();
     }
 }

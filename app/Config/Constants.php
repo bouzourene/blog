@@ -92,3 +92,8 @@ define('EVENT_PRIORITY_NORMAL', 100);
  * @deprecated Use \CodeIgniter\Events\Events::PRIORITY_HIGH instead.
  */
 define('EVENT_PRIORITY_HIGH', 10);
+
+// Blog paths
+defined('BLOG_PUBLISHED') || define('BLOG_PUBLISHED', ROOTPATH . "writable/blog/published");
+defined('BLOG_DRAFT') || define('BLOG_DRAFT', ROOTPATH . "writable/blog/draft");
+defined('BLOG_DISABLED') || define('BLOG_DISABLED', ROOTPATH . "writable/blog/disabled");

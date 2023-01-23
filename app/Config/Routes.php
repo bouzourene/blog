@@ -32,7 +32,8 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 $routes->get('/home', 'Home::home');
 $routes->get('/about', 'Home::about');
-$routes->get('/contact', 'Home::contact');
+$routes->get('/blog', 'Blog::index');
+$routes->get('/blog/(:segment)', 'Blog::post/$1');
 
 /*
  * --------------------------------------------------------------------

@@ -6,6 +6,26 @@
 	<span class="h4">William Bouzourène</span>
 
 	{% include "partials/socials.twig" %}
+
+	<h3 class="my-4 text-start">Latest blog posts</h3>
+	<ul class="list-group">
+		{% for post in posts %}
+		<li class="list-group-item blog-box">
+			<div class="row">
+				<div class="col-sm-9 text-start">
+					<a class="blog-link" href="/blog/{{ post.getSlug() }}">
+						{{ post.getTitle() }}
+					</a>
+				</div>
+				<div class="col-sm-3 text-end">
+					<span class="text-muted">
+						{{ post.getDate()|date("d.m.Y") }}
+					</span>
+				</div>
+			</div>
+		</li>
+		{% endfor %}
+	</ul>
 </div>
 
 {% endblock %}

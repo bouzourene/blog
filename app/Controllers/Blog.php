@@ -2,21 +2,9 @@
 
 namespace App\Controllers;
 
-class Home extends BaseController
+class Blog extends BaseController
 {
-	private $mailto;
-
-	public function __construct() {
-		$this->mailto = base64_encode("mailto:william@bouzourene.ch");
-	}
-
 	public function index()
-	{
-		header("Location: /home");
-		exit;
-	}
-
-	public function home()
 	{
 		$posts = scandir(
 			BLOG_PUBLISHED,
@@ -24,16 +12,11 @@ class Home extends BaseController
 		);
 
 		$postsToDisplay = [];
-		$count = 0;
 		foreach ($posts as $key => $post) {
-			if ($count >= 3) break;
-
 			$post = strtolower($post);
 			if (str_ends_with($post, '.md')) {
 				$postsToDisplay[] = $post;
 			}
-
-			$count++;
 		}
 
 		$blogPosts = [];
@@ -43,16 +26,25 @@ class Home extends BaseController
 			);
 		}
 
-		return $this->twig->display("home/index", [
-			'mailto' => $this->mailto,
+		return $this->twig->display("blog/list", [
 			'posts' => $blogPosts
 		]);
 	}
 
-	public function about()
+	public function post($slug)
 	{
-		return $this->twig->display("home/about", [
-			'mailto' => $this->mailto
+		$slugToFile = str_replace('-', '_', $slug) . ".md";
+		if (!file_exists(BLOG_PUBLISHED . "/{$slugToFile}")) {
+			throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+		}
+
+		$blogPost = new \App\Helpers\BlogPost(
+			BLOG_PUBLISHED . "/{$slugToFile}"
+		);
+
+		return $this->twig->display("blog/post", [
+			'title' => $blogPost->getTitle(),
+			'post' => $blogPost
 		]);
 	}
 }
