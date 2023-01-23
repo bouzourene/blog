@@ -17,4 +17,13 @@
 	{{ post.getHtml()|raw }}
 </article>
 
+{% block javascript %}
+<script>
+	$(document).ready(function() {
+		$('.post-article img').addClass('img-fluid');
+		$('.post-article a').attr('target', '_blank');
+	})
+</script>
+{% endblock %}
+
 {% endblock %}

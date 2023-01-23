@@ -24,12 +24,13 @@ class Home extends BaseController
 		$postsToDisplay = [];
 		$allPosts = (new BlogPosts)->getPublished();
 		
+		$max = 5;
 		$count = 0;
 		foreach ($allPosts as $post) {
 			$count++;
 			$postsToDisplay[] = $post;
 			
-			if ($count >= 3) {
+			if ($count >= $max) {
 				break;
 			}
 		}
@@ -41,7 +42,8 @@ class Home extends BaseController
 
 		return $this->twig->display("home/index", [
 			'mailto' => $this->mailto,
-			'posts' => $blogPosts
+			'posts' => $blogPosts,
+			'diff' => $max - $count
 		]);
 	}
 
