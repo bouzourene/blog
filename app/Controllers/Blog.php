@@ -17,6 +17,7 @@ class Blog extends BaseController
 		}
 
 		return $this->twig->display("blog/list", [
+			'head_title' => "Blog",
 			'posts' => $blogPosts
 		]);
 	}
@@ -33,7 +34,7 @@ class Blog extends BaseController
 		);
 
 		return $this->twig->display("blog/post", [
-			'title' => $blogPost->getTitle(),
+			'head_title' => $blogPost->getTitle(),
 			'post' => $blogPost
 		]);
 	}

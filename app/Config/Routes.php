@@ -29,12 +29,23 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+
+// General section
 $routes->get('/', 'Home::index');
 $routes->get('/home', 'Home::home');
 $routes->get('/about', 'Home::about');
+$routes->get('/tools', 'Home::tools');
+
+// Blog section
 $routes->get('/blog', 'Blog::index');
 $routes->get('/blog/(:segment)', 'Blog::post/$1');
-$routes->get('/tools', 'Home::tools');
+
+// Admin section
+$routes->get('/admin', 'Admin::index');
+$routes->get('/admin/post/add', 'Admin::post_add');
+$routes->post('/admin/post/add', 'Admin::post_add');
+$routes->get('/admin/post/edit/(:segment)', 'Admin::post_edit/$1');
+$routes->post('/admin/post/edit/(:segment)', 'Admin::post_edit/$1');
 
 /*
  * --------------------------------------------------------------------

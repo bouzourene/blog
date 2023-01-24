@@ -16,7 +16,12 @@ class BlogPost
 	private $title;
 	private $author;
 
+	private $path;
+	private $status;
+
 	function __construct(string $path) {
+		$this->path = $path;		
+
 		$filename = basename($path, '.md');
 		$parts = explode('_', $filename);
 
@@ -24,6 +29,20 @@ class BlogPost
 		$this->slug = implode('-', $parts);
 
 		$this->rawContent = file_get_contents($path);
+	}
+
+	function getStatus() {
+		$path = $this->path;
+		$split = explode('/', $path);
+
+		if (count($split) < 2) {
+			return "unknown";
+		}
+
+		$status = $split[count($split)-2];
+		$status = strtoupper($status);
+
+		return $status;
 	}
 
 	function getDate() {

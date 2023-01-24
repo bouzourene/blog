@@ -72,3 +72,8 @@ a.blog-link {
 .post-article {
 	text-align: justify;
 }
+
+.markdown-box {
+	min-height: 500px !important;
+	margin-bottom: 20px;
+}

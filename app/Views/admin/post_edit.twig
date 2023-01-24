@@ -1,0 +1,35 @@
+{% extends "layouts/admin.twig" %}
+
+{% block content %}
+<h2>Edit post</h2>
+
+<form method="post" class="mt-3">
+	<input class="form-control mb-2" type="text" name="title" placeholder="Title" value="{{ post.getTitle() }}" required>
+	<input class="form-control mb-2" type="text" name="slug" placeholder="Slug" value="{{ slug }}" required>
+	<input class="form-control mb-2" type="date" name="date" value="{{ post.getDate() }}" required>
+	<input class="form-control mb-2" type="text" name="author" placehlder="Author" value="{{ post.getAuthor() }}" required>
+
+	<select class="form-select mb-2" data-select-value="{{ post.getStatus() }}" name="status" required>
+		<option value="DRAFT">Draft</option>
+		<option value="PUBLISHED">Published</option>
+		<option value="DISABLED">Disabled</option>
+	</select>
+
+	<textarea name="content" class="form-control markdown-box">{{ post.getMarkdown() }}</textarea>
+
+	<button class="btn btn-primary" type="submit">
+		Save
+	</button>
+</form>
+
+{% endblock %}
+
+{% block javascript %}
+<script>
+	$(document).ready(function() {
+		$('[data-select-value]').each(function() {
+			$(this).val($(this).data('select-value'));
+		});
+	});
+</script>
+{% endblock %}

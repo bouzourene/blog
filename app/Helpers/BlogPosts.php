@@ -41,7 +41,7 @@ class BlogPosts
 	public function getDeleted(): array
 	{
 		return $this->getList(
-			\BLOG_DELETED
+			\BLOG_DISABLED
 		);
 	}
 

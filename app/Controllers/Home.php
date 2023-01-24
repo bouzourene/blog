@@ -41,6 +41,7 @@ class Home extends BaseController
 		}
 
 		return $this->twig->display("home/index", [
+			'head_title' => "Home",
 			'mailto' => $this->mailto,
 			'posts' => $blogPosts,
 		]);
@@ -49,12 +50,15 @@ class Home extends BaseController
 	public function about()
 	{
 		return $this->twig->display("home/about", [
+			'head_title' => "About",
 			'mailto' => $this->mailto
 		]);
 	}
 
 	public function tools()
 	{
-		return $this->twig->display("home/tools");
+		return $this->twig->display("home/tools", [
+			'head_title' => "Tools"
+		]);
 	}
 }
