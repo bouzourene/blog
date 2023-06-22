@@ -1,3 +1,2 @@
-CI_ENVIRONMENT = development
-ADMIN_USER = "admin"
-ADMIN_PASS = "password"
+CI_ENVIRONMENT = production
+app.baseURL = 'https://bzrn.ch/';
