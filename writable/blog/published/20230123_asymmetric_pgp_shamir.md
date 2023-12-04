@@ -18,7 +18,7 @@ Example: I generate 4 keys and require that at least 2 of the users provide thei
 It's a general rule in software development, prefer using trusted librairies maintained by security/crypto professionals. In my case, I ended up using Proton's PGP Go lib and Hashicorp's Shamir's secret sharing Go lib (used by Hashicorp Vault).
 
 ### My implementation
-I wrote the software in Go, as you could've guessed from the libs I picked. It's available on my GitHub profile: [Byoki](https://github.com/bouzourene/byoki), and I also have a [self-hosted mirror](https://gitea.xz6.ch/mawi/byoki) (just in case),
+I wrote the software in Go, as you could've guessed from the libs I picked. It's available on my GitHub profile: [Byoki](https://github.com/bouzourene/byoki).
 
 ### Step 1: Create the keys payload
 This will create a JSON file: it will contain a public key, an encrypted private key, as well as some useful metadata.
