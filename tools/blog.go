@@ -3,6 +3,7 @@ package tools
 import (
 	"embed"
 	"fmt"
+	"slices"
 	"strings"
 	"time"
 
@@ -44,6 +45,9 @@ func BlogGetEntires() []BlogEntry {
 			}
 		}
 	}
+
+	// Get the most recent entries first
+	slices.Reverse(entries)
 
 	return entries
 }
