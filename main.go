@@ -21,7 +21,7 @@ var embedStatic embed.FS
 //go:embed views
 var embedViews embed.FS
 
-//go:embed blog
+//go:embed blogposts
 var embedBlog embed.FS
 
 func main() {

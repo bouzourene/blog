@@ -25,12 +25,12 @@ type BlogEntry struct {
 func BlogGetEntires() []BlogEntry {
 	var entries []BlogEntry
 
-	items, err := EmbedBlog.ReadDir("blog")
+	items, err := EmbedBlog.ReadDir("blogposts")
 	if err == nil {
 		for _, item := range items {
 			name := strings.ToLower(item.Name())
 			if !item.IsDir() && strings.HasSuffix(name, ".md") {
-				path := fmt.Sprintf("blog/%s", item.Name())
+				path := fmt.Sprintf("blogposts/%s", item.Name())
 				file, err := EmbedBlog.ReadFile(path)
 				if err != nil {
 					continue
@@ -57,7 +57,7 @@ func BlogGetEntry(slug string) BlogEntry {
 
 	name := fmt.Sprintf("%s.md", slug)
 	name = strings.ReplaceAll(name, "-", "_")
-	path := fmt.Sprintf("blog/%s", name)
+	path := fmt.Sprintf("blogposts/%s", name)
 
 	file, err := EmbedBlog.ReadFile(path)
 	if err == nil {
