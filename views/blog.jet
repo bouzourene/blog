@@ -1,0 +1,24 @@
+{{extends "./layout.jet"}}
+
+{{block container()}}
+<h1 class="mb-4">My blog posts</h1>
+
+<ul class="list-group my-2">
+	{{range _, post := posts}}
+	<li class="list-group-item blog-box">
+		<div class="row">
+			<div class="col-sm-9">
+				<a class="blog-link" href="/blog/{{ post.Slug }}">
+					{{ post.Title }}
+				</a>
+			</div>
+			<div class="col-sm-3 text-end">
+				<span class="text-muted">
+					{{ post.Date }}
+				</span>
+			</div>
+		</div>
+	</li>
+	{{end}}
+</ul>
+{{end}}

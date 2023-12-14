@@ -1,0 +1,18 @@
+{{extends "./layout.jet"}}
+
+{{block container()}}
+<h1 class="post-title">
+	{{ post.Title }}
+</h1>
+
+<div class="text-muted my-4">
+	<span>Published on</span>
+	<span class="text-bold">{{ post.Date }}</span>
+	<span>by</span>
+	<span class="text-bold">{{ post.Author }}</span>
+</div>
+
+<article class="post-article">
+	{{ raw: post.Html }}
+</article>
+{{end}}

@@ -1,0 +1,37 @@
+{{extends "./layout.jet"}}
+{{import "./partials/socials.jet"}}
+
+{{block container()}}
+<div class="text-center">
+	<img
+		src="/static/images/avatar.png"
+		class="img-fluid img-profile-home mx-auto mb-3"
+		alt="William"
+	>
+	<span class="h4">
+		William Bouzourène
+	</span>
+
+	{{yield socials()}}
+
+	<h3 class="my-4 text-start">Latest blog posts</h3>
+	<ul class="list-group">
+		{{range _, post := posts}}
+		<li class="list-group-item blog-box">
+			<div class="row">
+				<div class="col-sm-9 text-start">
+					<a class="blog-link" href="/blog/{{ post.slug }}">
+						{{ post.title }}
+					</a>
+				</div>
+				<div class="col-sm-3 text-end">
+					<span class="text-muted">
+						{{ post.date }}
+					</span>
+				</div>
+			</div>
+		</li>
+		{{end}}
+	</ul>
+</div>
+{{end}}

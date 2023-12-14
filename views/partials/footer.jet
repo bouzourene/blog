@@ -1,0 +1,5 @@
+{{block footer()}}
+<footer class="mt-4 py-4 text-center text-muted">
+	&copy; {{ copyright_year }} William Bouzourène
+</footer>
+{{end}}

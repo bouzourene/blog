@@ -1,2 +1,0 @@
-CI_ENVIRONMENT = production
-app.baseURL = 'https://bzrn.ch/'
