@@ -13,10 +13,10 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbar-main">
 				<ul class="navbar-nav ms-auto">
-					{{yield navItem(name="Home", link="/home", icon="fa-solid fa-house-chimney")}}
-					{{yield navItem(name="About", link="/about", icon="fa-solid fa-user-secret")}}
-					{{yield navItem(name="Blog", link="/blog", icon="fa-regular fa-newspaper")}}
-					{{yield navItem(name="Tools", link="/tools", icon="fa-solid fa-screwdriver-wrench")}}
+					{{yield navItem(name="Home", link="/home", icon="fa-home")}}
+					{{yield navItem(name="About", link="/about", icon="fa-user-secret")}}
+					{{yield navItem(name="Blog", link="/blog", icon="fa-newspaper-o")}}
+					{{yield navItem(name="Tools", link="/tools", icon="fa-wrench")}}
 				</ul>
 			</div>
 		</div>
@@ -27,7 +27,7 @@
 {{block navItem(name, link, icon)}}
 <li class="nav-item">
 	<a href="{{ link }}" class="nav-link">
-		<i class="{{ icon }} me-1"></i>
+		<i class="fa {{ icon }} me-1"></i>
 		{{ name }}
 	</a>
 </li>
