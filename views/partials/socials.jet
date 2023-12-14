@@ -1,45 +1,25 @@
 {{block socials()}}
 <div class="mt-2">
-	<a
-		class="social-icons"
-		target="_blank"
-		href="https://github.com/bouzourene"
-		data-bs-toggle="tooltip"
-		data-bs-placement="bottom"
-		data-bs-title="GitHub"
-	>
-		<i class="fa-brands fa-github-alt mx-1"></i>
-	</a>
-	<a
-		class="social-icons"
-		target="_blank"
-		href="https://www.linkedin.com/in/william-bouzour%C3%A8ne-83410a1ba/"
-		data-bs-toggle="tooltip"
-		data-bs-placement="bottom"
-		data-bs-title="LinkedIn"
-	>
-		<i class="fa-brands fa-linkedin mx-1"></i>
-	</a>
-	<a
-		class="social-icons"
-		target="_blank"
-		href="https://news.ycombinator.com/user?id=bzrn"
-		data-bs-toggle="tooltip"
-		data-bs-placement="bottom"
-		data-bs-title="Hacker News"
-	>
-		<i class="fa-brands fa-hacker-news mx-1"></i>
-	</a>
-	<a
-		class="social-icons"
-		target="_blank"
-		href="#"
-		data-href-decode="{{ mailto }}"
-		data-bs-toggle="tooltip"
-		data-bs-placement="bottom"
-		data-bs-title="Shoot me an email"
-	>
-		<i class="fa-solid fa-inbox mx-1"></i>
-	</a>
+	{{yield socialButton(title="GitHub", link="https://github.com/bouzourene", icon="fa-github-alt")}}
+	{{yield socialButton(title="LinkedIn", link="https://www.linkedin.com/in/william-bouzour%C3%A8ne-83410a1ba/", icon="fa-linkedin-square")}}
+	{{yield socialButton(title="Hacker News", link="https://news.ycombinator.com/user?id=bzrn", icon="fa-hacker-news")}}
+	{{yield socialButton(title="Shoot me an email", link="#", icon="fa-inbox", decode=mailto)}}
 </div>
+{{end}}
+
+{{block socialButton(title, link, icon, decode="")}}
+<a
+	class="social-icons"
+	target="_blank"
+	href="{{ link }}"
+	data-bs-toggle="tooltip"
+	data-bs-placement="bottom"
+	data-bs-title="{{ title }}"
+
+	{{if len(decode) > 0}}
+	data-href-decode="{{ decode }}"
+	{{end}}
+>
+	<i class="fa {{ icon }} mx-1"></i>
+</a>
 {{end}}
