@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"github.com/bouzourene/blog/tools"
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -9,10 +10,20 @@ func Index(c *fiber.Ctx) error {
 }
 
 func Home(c *fiber.Ctx) error {
-	var posts []struct{}
+	posts := tools.BlogGetEntires()
+	var lastPosts []tools.BlogEntry
+
+	// Only show 3 most recent posts
+	for i, post := range posts {
+		if i > 2 {
+			break
+		}
+
+		lastPosts = append(lastPosts, post)
+	}
 
 	return c.Render("views/home", fiber.Map{
-		"posts": posts,
+		"posts": lastPosts,
 	})
 }
 
