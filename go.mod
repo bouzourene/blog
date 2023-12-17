@@ -4,6 +4,7 @@ go 1.21.5
 
 require (
 	github.com/gofiber/fiber/v2 v2.51.0
+	github.com/gofiber/helmet/v2 v2.2.26
 	github.com/gofiber/template/jet/v2 v2.1.6
 	github.com/gomarkdown/markdown v0.0.0-20231115200524-a660076da3fd
 	github.com/spf13/viper v1.18.1
@@ -34,6 +35,8 @@ require (
 	github.com/spf13/cast v1.6.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/subosito/gotenv v1.6.0 // indirect
+	github.com/tdewolff/minify v2.3.6+incompatible // indirect
+	github.com/tdewolff/parse v2.3.4+incompatible // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.50.0 // indirect
 	github.com/valyala/tcplisten v1.0.0 // indirect

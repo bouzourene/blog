@@ -12,6 +12,8 @@ import (
 	"github.com/bouzourene/blog/tools"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/filesystem"
+	loggerMiddleware "github.com/gofiber/fiber/v2/middleware/logger"
+	"github.com/gofiber/helmet/v2"
 	"github.com/gofiber/template/jet/v2"
 )
 
@@ -69,6 +71,8 @@ func main() {
 
 	// Apply middlewares
 	app.Use(middlewares.DefaultHeaders)
+	app.Use(loggerMiddleware.New())
+	app.Use(helmet.New())
 
 	// Define routes
 	app.Get("/", controllers.Index)
