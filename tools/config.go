@@ -14,6 +14,7 @@ func LoadConfig() {
 	viper.SetDefault("BIND_PORT", "3000")
 	viper.SetDefault("BEHIND_PROXY", "false")
 	viper.SetDefault("MAILTO", "")
+	viper.SetDefault("GOATCOUNTER", "")
 }
 
 func ConfigValue(key string) string {

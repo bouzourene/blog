@@ -61,6 +61,7 @@ func main() {
 	engine.Templates.AddGlobal("mailto", base64.StdEncoding.EncodeToString(
 		[]byte(tools.ConfigValue("MAILTO")),
 	))
+	engine.Templates.AddGlobal("goatcounter", tools.ConfigValue("GOATCOUNTER"))
 
 	// Serve static content
 	app.Use("/static", filesystem.New(filesystem.Config{

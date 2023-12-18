@@ -33,5 +33,11 @@
 	<script src="/static/js/bootstrap.js"></script>
 	<script src="/static/js/jquery.js"></script>
 	<script src="/static/js/main.js"></script>
+
+	{{if len(goatcounter) > 0}}
+	<!-- Load GoatCounter analytics -->
+	<script data-goatcounter="{{goatcounter}}/count"
+		async src="{{goatcounter}}/count.js"></script>
+	{{end}}
 </body>
 </html>
